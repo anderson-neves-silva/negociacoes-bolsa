@@ -1,10 +1,10 @@
 // em um primeiro momento eu vou fazer em JS, aqui vamos modelar usando classes do Ecmascript, aqui depois que uma instância é criada não pode ser modificada, por isso criamos atributos privados, vou criar uma instância em "app" para testar se consigo modificar esses atributos. 
 export class Negociacao {
-  private _data;
-  private _quantidade;
-  private _valor;
+  private _data: Date;
+  private _quantidade: number;
+  private _valor: number;
 
-  constructor(data, quantidade, valor) {
+  constructor(data: Date, quantidade: number, valor: number) {
     this._data = data;
     this._quantidade = quantidade;
     this._valor = valor;
