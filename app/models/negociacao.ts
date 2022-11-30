@@ -11,19 +11,19 @@ export class Negociacao {
   }
 
   // criando os gets, pois ele sabe acessar os atributos privados da classe.
-  get data() { 
+  get data(): Date { 
     return this._data; 
   }
 
-  get quantidade() {
+  get quantidade(): number {
     return this._quantidade;
   }
 
-  get valor() {
+  get valor(): number {
     return this._valor;
   }
 
-  get volume() {
+  get volume(): number {
     return this._valor * this._quantidade;
   }
 }
