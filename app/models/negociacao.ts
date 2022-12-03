@@ -1,15 +1,10 @@
-// em um primeiro momento eu vou fazer em JS, aqui vamos modelar usando classes do Ecmascript, aqui depois que uma instância é criada não pode ser modificada, por isso criamos atributos privados, vou criar uma instância em "app" para testar se consigo modificar esses atributos. 
 export class Negociacao {
-  private _data: Date;
-  private _quantidade: number;
-  private _valor: number;
-
-  constructor(data: Date, quantidade: number, valor: number) {
-    this._data = data;
-    this._quantidade = quantidade;
-    this._valor = valor;
-  }
-
+  // se no construtor colocarmos o modificador private ou public o TS por de baixo dos panos criar uma propriedade da minha classe que contenha esse mesmo nome com esses parâmetros do construtor e faz a atribuição, uma observação: podemos criar uma propriedade que não faz parte do construtor antes dele tranquilamente.
+  constructor(
+    private _data: Date, 
+    private _quantidade: number,
+    private _valor: number
+  ) {}
   // criando os gets, pois ele sabe acessar os atributos privados da classe.
   get data(): Date { 
     return this._data; 
