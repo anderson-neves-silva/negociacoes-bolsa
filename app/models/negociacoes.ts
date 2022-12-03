@@ -9,9 +9,8 @@ export class Negociacoes {
     this.negociacoes.push(negociacao);
   }
 
-  // método que mostra as negociações criadas.
-  lista(): Array<Negociacao> {
-    // o “...” significa pega cada item desse array individualmenet e coloca nessa lista.
-    return [...this.negociacoes];
+  // método que mostra as negociações criadas, o "ReadonlyArray" é idético ao array, ele permite criar um array ou lista somente de leitura.
+  lista(): ReadonlyArray<Negociacao> {
+    return this.negociacoes;
   }
 }
