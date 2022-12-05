@@ -13,6 +13,8 @@ export class NegociacaoController {
         const negociacao = this.criaNegociacao();
         // console.log(negociacao);
         this.negociacoes.adiciona(negociacao);
+        // a linha abaixo não funciona porque a lista continua como somente de leitura. 
+        // this.negociacoes.lista().pop();
         console.log(this.negociacoes.lista());
         // após criar uma négociação eu chamo esse método.
         this.limparFormulario();

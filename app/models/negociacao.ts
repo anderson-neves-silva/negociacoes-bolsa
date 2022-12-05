@@ -1,24 +1,12 @@
 export class Negociacao {
-  // se no construtor colocarmos o modificador private ou public o TS por de baixo dos panos criar uma propriedade da minha classe que contenha esse mesmo nome com esses parâmetros do construtor e faz a atribuição, uma observação: podemos criar uma propriedade que não faz parte do construtor antes dele tranquilamente.
+  // aqui não preciso mais colocar o modificador private porque vou usar o readonly que essa propriedade agara não pode ser mais alterda, pois ela é somente de leitua.
   constructor(
-    private _data: Date, 
-    private _quantidade: number,
-    private _valor: number
+    public readonly data: Date, 
+    public readonly quantidade: number,
+    public readonly valor: number
   ) {}
-  // criando os gets, pois ele sabe acessar os atributos privados da classe.
-  get data(): Date { 
-    return this._data; 
-  }
-
-  get quantidade(): number {
-    return this._quantidade;
-  }
-
-  get valor(): number {
-    return this._valor;
-  }
-
+  // criando o get, pois ele sabe acessar os atributos privados de uma classe.
   get volume(): number {
-    return this._valor * this._quantidade;
+    return this.valor * this.quantidade;
   }
 }
