@@ -10,7 +10,7 @@ export class Negociacao {
         return this.valor * this.quantidade;
     }
     get data() {
-        // aqui antes de devolver a data, criamos uma nova data igual a data que a classe negociacão está guardando protegida porém com uma nova referência para a memôria.
+        // aqui antes de devolver a data, criamos uma nova data igual a data que a classe negociacão está guardando protegida porém com uma nova referência para a memôria, aqui foi o mesmo que clonar essa variável mas sendo modificada apenas a cópia.
         const data = new Date(this._data.getTime());
         return data;
     }
