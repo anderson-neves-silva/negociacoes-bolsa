@@ -12,6 +12,8 @@ export class NegociacaoController {
         // aqui eu apenas chamo o método.
         const negociacao = this.criaNegociacao();
         // console.log(negociacao);
+        // nesse linha abaixo usando o setDate indica uma folha que mesmo nossa propriedade como somente de leitura elá pode ser modificada.
+        negociacao.data.setDate(15);
         this.negociacoes.adiciona(negociacao);
         // a linha abaixo não funciona porque a lista continua como somente de leitura. 
         // this.negociacoes.lista().pop();
