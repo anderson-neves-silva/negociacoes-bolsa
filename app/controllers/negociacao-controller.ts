@@ -13,33 +13,25 @@ export class NegociacaoController {
     this.inputValor = document.querySelector('#valor');    
   }
 
-  // podemos tipar os retornos dos métodos, aqui eu apenas acrescentei.
-  adiciona(): void {
-    // aqui eu apenas chamo o método.
-    const negociacao = this.criaNegociacao();
+  adiciona(): void {  // podemos tipar os retornos dos métodos, aqui eu apenas acrescentei.
+    const negociacao = this.criaNegociacao();  // aqui eu apenas chamo o método.
     // console.log(negociacao);
-    // nesse linha abaixo usando o setDate indica uma folha que mesmo nossa propriedade como somente de leitura elá pode ser modificada.
-    negociacao.data.setDate(15);
+    negociacao.data.setDate(15);  // nesse linha usando o setDate indica uma folha que mesmo nossa propriedade como somente de leitura elá pode ser modificada.
     this.negociacoes.adiciona(negociacao);
-    // a linha abaixo não funciona porque a lista continua como somente de leitura. 
-    // this.negociacoes.lista().pop();
+    // this.negociacoes.lista().pop();  // essa linha não funciona porque a lista continua como somente de leitura. 
     console.log(this.negociacoes.lista());
-    // após criar uma négociação eu chamo esse método.
-    this.limparFormulario();
+    this.limparFormulario();  // após criar uma négociação eu chamo esse método que limpa o form.
   }
-  // criando o método que cria a negociação.
-  criaNegociacao(): Negociacao {
-    // convertendo a string que vem do form em um objeto do tipo Date, eu primeiro crio uma expressão regular que significa, encontra tudo que é "-" mas não só primeiro, todas as ocorrência eu faço isso com o "g" de global.
-    const exp = /-/g;
-    // aqui no construtor eu passo o resultado de replace que pega tudo que tem "-" e substituir por "," o retorno de value é sempre uma string, por isso uso o replace. 
-    const date = new Date(this.inputData.value.replace(exp, ','));
+
+  criaNegociacao(): Negociacao {  // criando o método que cria a negociação.
+    const exp = /-/g;  // convertendo a string que vem do form em um objeto do tipo Date, eu primeiro crio uma expressão regular que significa, encontra tudo que é "-" mas não só primeiro, todas as ocorrência eu faço isso com o "g" de global.
+    const date = new Date(this.inputData.value.replace(exp, ','));  // aqui no construtor eu passo o resultado de replace que pega tudo que tem "-" e substituir por "," o retorno de value é sempre uma string, por isso uso o replace.
     const quantidade = parseInt(this.inputQuantidade.value);
     const valor = parseFloat(this.inputValor.value);
     return new Negociacao(date, quantidade, valor);
   }
 
-  // método que limpa o form e dá foco ao primeiro input.
-  limparFormulario(): void {
+  limparFormulario(): void {  // método que limpa o form e dá foco ao primeiro input.
     this.inputData.value = '';
     this.inputQuantidade.value = '';
     this.inputValor.value = '';

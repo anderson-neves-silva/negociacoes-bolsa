@@ -3,18 +3,15 @@ import { Negociacao } from './negociacao.js';
 export class Negociacoes {
 
   // private negociacoes: Array<Negociacao> = [];
-  // atalho que o TS nos fornece, para fazer isso Array<Negociacao> é só fazer assim private Negociacao[], tem o mesmo efeito. 
-  private negociacoes: Negociacao[] = [];
+  private negociacoes: Negociacao[] = [];  // atalho que o TS nos fornece, para fazer isso Array<Negociacao> é só fazer assim private Negociacao[], tem o mesmo efeito. 
 
-  // método que adiciona uma negociação.
-  adiciona(negociacao: Negociacao) {
+  adiciona(negociacao: Negociacao) {  // método que adiciona uma negociação.
     this.negociacoes.push(negociacao);
   }
 
-  // método que mostra as negociações criadas, o "ReadonlyArray" é idético ao array, ele permite criar um array ou lista somente de leitura.
-  // lista(): ReadonlyArray<Negociacao> {
-  // para ter o mesmo resultado da linha acima siga a linha abaixo é só escrever esse modificador. 
-  lista(): readonly Negociacao[] {
+  // lista(): ReadonlyArray<Negociacao> {}  // método que mostra as negociações criadas, o "ReadonlyArray" é idético ao array, ele permite criar um array ou lista somente de leitura.
+  
+  lista(): readonly Negociacao[] {  // para ter o mesmo resultado da linha acima é só escrever esse modificador o "readonly".
     return this.negociacoes;
   }
 }
