@@ -8,15 +8,16 @@ export class NegociacaoController {
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');
         this.inputValor = document.querySelector('#valor');
-        this.negociacoesView.update(); // chamando o método que exibe a tabela
+        this.negociacoesView.update(this.negociacoes); // chamando o método que exibe a tabela
     }
     adiciona() {
         const negociacao = this.criaNegociacao(); // aqui eu apenas chamo o método.
         // console.log(negociacao);
-        negociacao.data.setDate(15); // nesse linha usando o setDate indica uma folha que mesmo nossa propriedade como somente de leitura elá pode ser modificada.
+        // negociacao.data.setDate(15);  // nesse linha usando o setDate indica uma folha que mesmo nossa propriedade como somente de leitura elá pode ser modificada.
         this.negociacoes.adiciona(negociacao);
         // this.negociacoes.lista().pop();  // essa linha não funciona porque a lista continua como somente de leitura. 
-        console.log(this.negociacoes.lista());
+        // console.log(this.negociacoes.lista());
+        this.negociacoesView.update(this.negociacoes);
         this.limparFormulario(); // após criar uma négociação eu chamo esse método que limpa o form.
     }
     criaNegociacao() {
