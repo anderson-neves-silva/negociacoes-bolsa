@@ -1,6 +1,7 @@
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
 import { NegociacoesView } from "../views/negociacoes-view.js";
+import { MensagemView } from '../views/mensagem-view.js';
 
 export class NegociacaoController {
   private inputData: HTMLInputElement;
@@ -8,6 +9,7 @@ export class NegociacaoController {
   private inputValor: HTMLInputElement;
   private negociacoes = new Negociacoes();
   private negociacoesView = new NegociacoesView('#negociacoesView');  // indicamos qual o elemento do dom que a view será renderizada por cima.
+  private mensagemView = new MensagemView('#mensagemView');
 
   constructor() {
     this.inputData = document.querySelector('#data');
@@ -24,6 +26,7 @@ export class NegociacaoController {
     // this.negociacoes.lista().pop();  // essa linha não funciona porque a lista continua como somente de leitura. 
     // console.log(this.negociacoes.lista());
     this.negociacoesView.update(this.negociacoes);
+    this.mensagemView.update('Negociação adicionada com sucesso!');
     this.limparFormulario();  // após criar uma négociação eu chamo esse método que limpa o form.
   }
 
